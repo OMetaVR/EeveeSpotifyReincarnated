@@ -1,0 +1,10 @@
+{
+  "upstream": "SideloadLabs/EeveeSpotifyReincarnated",
+  "name": "EeveeSpotify",
+  "base": {
+    "name": "Spotify",
+    "bundleId": "com.spotify.client",
+    "appStoreId": 324684580,
+    "version": { "from": "upstream-file", "file": "README.md", "ref": "default", "regex": "\\*\\*Spotify Version:\\*\\* `([0-9.]+)`" }
+  }
+}
