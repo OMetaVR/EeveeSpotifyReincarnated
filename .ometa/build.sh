@@ -28,7 +28,8 @@ log "RootHide .deb (roothide/theos)"
   export THEOS="$RUNNER_TEMP/theos-roothide"
   git clone --quiet --recursive https://github.com/roothide/theos.git "$THEOS"
   rm -rf packages; make clean || true
-  make build-eeveeswiftprotobuf   # built per Theos install, like upstream's builddeb.yml
+  export THEOS_PACKAGE_SCHEME=roothide   # the framework install path depends on it
+  make build-eeveeswiftprotobuf          # built per Theos install, like upstream's builddeb.yml
   make package FINALPACKAGE=1 THEOS_PACKAGE_SCHEME=roothide
   DEB="$(ls -t packages/*.deb | head -1)"
   cp "$DEB" "$OUT/$(basename "$DEB" .deb)-roothide.deb"
